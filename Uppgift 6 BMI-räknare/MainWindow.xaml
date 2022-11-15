@@ -1,0 +1,24 @@
+﻿<Window x:Class="Uppgift_6_BMI_räknare.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Uppgift_6_BMI_räknare"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Label x:Name="Label_räknare" Content="Miniräknare 9000" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="54" Width="168" FontSize="20"/>
+        <TextBox x:Name="tbox_input" HorizontalAlignment="Left" Margin="10,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="552" Height="32" Text="0" FontSize="16" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="btnValue_2" Content="2" HorizontalAlignment="Left" Margin="109,145,0,0" VerticalAlignment="Top" Height="72" Width="84" Click="btnValue_2_Click_1"/>
+        <Button x:Name="btnValue_3" Content="3" HorizontalAlignment="Left" Margin="202,145,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_4" Content="4" HorizontalAlignment="Left" Margin="10,235,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_5" Content="5" HorizontalAlignment="Left" Margin="109,235,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_6" Content="6" HorizontalAlignment="Left" Margin="202,235,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_7" Content="7" HorizontalAlignment="Left" Margin="10,325,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_8" Content="8" HorizontalAlignment="Left" Margin="109,325,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_9" Content="9" HorizontalAlignment="Left" Margin="202,325,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_0" Content="0" HorizontalAlignment="Left" Margin="291,325,0,0" VerticalAlignment="Top" Height="72" Width="84"/>
+        <Button x:Name="btnValue_1" Content="1" HorizontalAlignment="Left" Margin="10,145,0,0" VerticalAlignment="Top" Height="72" Width="84" Click="btnValue_1_Click_1"/>
+
+    </Grid>
+</Window>
