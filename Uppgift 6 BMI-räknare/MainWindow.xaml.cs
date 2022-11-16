@@ -21,27 +21,64 @@ namespace Uppgift_6_BMI_räknare
     /// </summary>
     public partial class MainWindow : Window
     {
+        Double Resultat = 0;
+        string Genomförd = "";
+        bool Genomförd_Status = false;
+        
         public MainWindow()
+
         {
             InitializeComponent();
-            Int64.Parse(tbox_input.Text);
+            
+            tbox_input.Text = "";
         }
         
-        
+        private void btnValue_Click(object sender, RoutedEventArgs e)
+        {
+            if (Genomförd_Status)
+                tbox_input.Clear();
+            Genomförd_Status = false;
+            Button knapp = (Button)sender;
+            tbox_input.Text = tbox_input.Text + knapp.Content;
+        }
+        private void btnResultat_Click(object sender, RoutedEventArgs e)
+        {
+            switch (Genomförd)
+            {
+                case "+":
+                    tbox_input.Text = (Resultat + Double.Parse(tbox_input.Text)).ToString();
+                    break;
+                case "-":
+                    tbox_input.Text = (Resultat - Double.Parse(tbox_input.Text)).ToString();
+                    break;
+                case "/":
+                    tbox_input.Text = (Resultat / Double.Parse(tbox_input.Text)).ToString();
+                    break;
+                case "*":
+                    tbox_input.Text = (Resultat * Double.Parse(tbox_input.Text)).ToString();
+                    break;
+                default:
+                    break;
+            }
+
+        }
+        private void btnOperatör_Click(object sender, RoutedEventArgs e)
+        {
+            Button knapp = (Button)sender;
+            Genomförd = (string)knapp.Content;
+            Resultat = Double.Parse(tbox_input.Text);
+            Label_Resultat.Content = Resultat + " " + Genomförd;
+            Genomförd_Status = true;
+        }
+        public void btnClear_Click(object sender, RoutedEventArgs e)
+        {
+            tbox_input.Text = "";
+            Resultat = 0;
+            Label_Resultat.Content = "";
+        }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
-        }
-
-        private void btnValue_1_Click_1(object sender, RoutedEventArgs e)
-        {
-            tbox_input.Text = tbox_input.Text + "1";
-            
-        }
-
-        private void btnValue_2_Click_1(object sender, RoutedEventArgs e)
-        {
-            tbox_input.Text = tbox_input.Text + "2";
         }
     }
 }
