@@ -21,62 +21,47 @@ namespace Uppgift_6_BMI_räknare
     /// </summary>
     public partial class MainWindow : Window
     {
-        Double Resultat = 0;
-        string Genomförd = "";
-        bool Genomförd_Status = false;
+        
         
         public MainWindow()
 
         {
             InitializeComponent();
-            
+
             tbox_input.Text = "";
         }
         
-        private void btnValue_Click(object sender, RoutedEventArgs e)
+
+        AllaSiffror Siffra = new AllaSiffror();
+        Operatör Tecken = new Operatör();
+        Resultat_tecken LikaMed = new Resultat_tecken();
+        Clear_CE ClearKnapp = new Clear_CE();
+        public void btnValue_Click(object sender, RoutedEventArgs e)
         {
-            if (Genomförd_Status)
-                tbox_input.Clear();
-            Genomförd_Status = false;
-            Button knapp = (Button)sender;
-            tbox_input.Text = tbox_input.Text + knapp.Content;
+            // Den här funktionen är kopplad till operatörerna och rensar textbox fältet efter man knappat in en operatör
+            // Den tar också själva symbolen på knappen och lägger till den i textbox fältet hela tiden.
+            Siffra.Siffror(ref sender);
         }
-        private void btnResultat_Click(object sender, RoutedEventArgs e)
+        public void btnResultat_Click(object sender, RoutedEventArgs e)
         {
-            switch (Genomförd)
-            {
-                case "+":
-                    tbox_input.Text = (Resultat + Double.Parse(tbox_input.Text)).ToString();
-                    break;
-                case "-":
-                    tbox_input.Text = (Resultat - Double.Parse(tbox_input.Text)).ToString();
-                    break;
-                case "/":
-                    tbox_input.Text = (Resultat / Double.Parse(tbox_input.Text)).ToString();
-                    break;
-                case "*":
-                    tbox_input.Text = (Resultat * Double.Parse(tbox_input.Text)).ToString();
-                    break;
-                default:
-                    break;
-            }
+            // den här funktionen använder switch för att kunna kolla vilket tecken som används
+            // därefter tar den det första värdet man skriver in och sen en operatör mellan och sen nästa input man skriver in
+            LikaMed.Resultat();
 
         }
-        private void btnOperatör_Click(object sender, RoutedEventArgs e)
+        public void btnOperatör_Click(object sender, RoutedEventArgs e)
         {
-            Button knapp = (Button)sender;
-            Genomförd = (string)knapp.Content;
-            Resultat = Double.Parse(tbox_input.Text);
-            Label_Resultat.Content = Resultat + " " + Genomförd;
-            Genomförd_Status = true;
+            // den här funktionen gör att operatörernas funktion kan genomföras och skriver också in i labeln vilket tecken som används och värdet innan man valt
+            Tecken.Operatörer(ref sender);
         }
+
         public void btnClear_Click(object sender, RoutedEventArgs e)
+            // den här funktionen rensar alla värden så det blir 0 eller tomt beroende på datatyp.
         {
-            tbox_input.Text = "";
-            Resultat = 0;
-            Label_Resultat.Content = "";
+            ClearKnapp.Clear();
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        // den här funktionen behövs för textbox
+        public void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
